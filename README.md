@@ -1,2 +1,3 @@
-# practica_1_ad
-Pràctica 1
+# Pràctica 1 d'Anàlisi de Dades
+
+**Autors:** Melcion Ciudad, Miquel Àngel Llauger, Albert Moya.
