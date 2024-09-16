@@ -3,32 +3,38 @@
 ## Practica 1: Analisis de Dades
 ### Autors: Miquel Angel Llauger Suau, Albert Moya Nadal i Melcion Ciudad Bosch.
 
+Como la primera variable solo tiene una posible observación al ser un estudio nacional, y entonces no es una variable eliminaremos esta columna y modificamos el nombre de las variables para una mayor comodidad.
+
 ```{r, echo=FALSE}
 #install.packages("tidyverse", dep=TRUE)
 library(tidyverse)
 tb_cov <- read.csv("covid.csv", header = TRUE, sep = ";",stringsAsFactors = FALSE);
+names(tb_cov) = c("Nacional", "CAut","Cv19","Sex","SemanaDef","DefTotal");
+tb_cov <- tb_cov[,-1];
+head(tb_cov)
 ```
 
-Disponemos de una tabla de 6 variables y 16200 observaciones, analicemos que tipo de variables tenemos y cuales son las posibles observaciones para su posterior análisis. Al tener tantas observaciones no podemos hacer un analisis visual de que tipo de observaciones hay en cada variable. Optamos por utilizar la función "unique" en las distintas variables excepto la última que es una variable de tipo cuantitativo discreto.
+Separaremos el data set segun varias variables como el sexo, comAut...
+
 
 ```{r, echo=FALSE}
-cov_Hombres = filter(tb_cov, Sexo == "Hombres", Comunidades.y.Ciudades.Autónomas == "", Covid.19 == "Total")
-cov_Mujeres = filter(tb_cov, Sexo == "Mujeres", Comunidades.y.Ciudades.Autónomas == "", Covid.19 == "Total")
-cov_Total = filter(tb_cov, Sexo == "Total", Comunidades.y.Ciudades.Autónomas == "", Covid.19 == "Total")
-cov_ComAut = filter(tb_cov, Sexo == "Total", Comunidades.y.Ciudades.Autónomas != "", Covid.19 == "Total", Semana.de.defunción == "Total")
+cov_Hombres = filter(tb_cov, Sex== "Hombres", CAut == "", Cv19 == "Total")
+cov_Mujeres = filter(tb_cov, Sex== "Mujeres", CAut== "", Cv19 == "Total")
+cov_Total = filter(tb_cov, Sex== "Total", CAut== "", Cv19== "Total")
+cov_ComAut = filter(tb_cov, Sex== "Total", CAut!= "", Cv19 == "Total", SemanaDef == "Total")
 ```
 
 Feim un analisis en funcio de si es covid identificat o no. Tenim els següents posibles valors de la variable Covid.19:
 
 ```{r, echo=FALSE}
-unique(tb_cov[,3])
+unique(tb_cov[,2])
 ```
 ```{r,echo=FALSE}
-cov_Ident = filter(tb_cov, Sexo == "Total", Comunidades.y.Ciudades.Autónomas == "", Covid.19 == "Covid-19 Virus identificado")
+cov_Ident = filter(tb_cov, Sex== "Total", CAut == "", Cv19== "Covid-19 Virus identificado")
 
-cov_No.Ident = filter(tb_cov, Sexo == "Total", Comunidades.y.Ciudades.Autónomas == "", Covid.19 == "Covid-19 Virus no identificado (sospechoso)")
+cov_No.Ident = filter(tb_cov, Sex== "Total", CAut == "", Cv19 == "Covid-19 Virus no identificado (sospechoso)")
 
-cov_SIM.Cv19 = filter(tb_cov, Sexo == "Total", Comunidades.y.Ciudades.Autónomas == "", Covid.19 == "Síndrome inflamatorio multisistémico asociado con COVID-19, no especificado")
+cov_Cv19.otros = filter(tb_cov, Sex== "Total", CAut == "", Cv19 == "Otras causas")
 ```
 
 

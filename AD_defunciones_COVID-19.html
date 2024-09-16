@@ -52,6 +52,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="practica-1-analisis-de-dades">Practica 1: Analisis de Dades</h2>
 <section id="autors-miquel-angel-llauger-suau-albert-moya-nadal-i-melcion-ciudad-bosch." class="level3">
 <h3 class="anchored" data-anchor-id="autors-miquel-angel-llauger-suau-albert-moya-nadal-i-melcion-ciudad-bosch.">Autors: Miquel Angel Llauger Suau, Albert Moya Nadal i Melcion Ciudad Bosch.</h3>
+<p>Como la primera variable solo tiene una posible observación al ser un estudio nacional, y entonces no es una variable eliminaremos esta columna y modificamos el nombre de las variables para una mayor comodidad.</p>
 <div class="cell">
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
@@ -65,8 +66,17 @@ ul.task-list li input[type="checkbox"] {
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  CAut  Cv19   Sex SemanaDef DefTotal
+1      Total Total     Total   464417
+2      Total Total  2021SM01     2801
+3      Total Total  2021SM02     9953
+4      Total Total  2021SM03    10670
+5      Total Total  2021SM04    10855
+6      Total Total  2021SM05    11205</code></pre>
 </div>
-<p>Disponemos de una tabla de 6 variables y 16200 observaciones, analicemos que tipo de variables tenemos y cuales son las posibles observaciones para su posterior análisis. Al tener tantas observaciones no podemos hacer un analisis visual de que tipo de observaciones hay en cada variable. Optamos por utilizar la función “unique” en las distintas variables excepto la última que es una variable de tipo cuantitativo discreto.</p>
+</div>
+<p>Separaremos el data set segun varias variables como el sexo, comAut…</p>
 <p>Feim un analisis en funcio de si es covid identificat o no. Tenim els següents posibles valors de la variable Covid.19:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
