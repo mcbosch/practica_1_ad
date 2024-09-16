@@ -5,7 +5,7 @@
 
 Como la primera variable solo tiene una posible observación al ser un estudio nacional, y entonces no es una variable eliminaremos esta columna y modificamos el nombre de las variables para una mayor comodidad.
 
-```{r, echo=FALSE}
+```{r}
 #install.packages("tidyverse", dep=TRUE)
 library(tidyverse)
 tb_cov <- read.csv("covid.csv", header = TRUE, sep = ";",stringsAsFactors = FALSE);
@@ -36,6 +36,14 @@ cov_No.Ident = filter(tb_cov, Sex== "Total", CAut == "", Cv19 == "Covid-19 Virus
 
 cov_Cv19.otros = filter(tb_cov, Sex== "Total", CAut == "", Cv19 == "Otras causas")
 ```
+
+```{r}
+library(ggplot2)
+cov_Total <- cov_Total[-1,]
+data = data.frame(cov_Total[,5]);
+boxplot(data)
+```
+
 
 
 
