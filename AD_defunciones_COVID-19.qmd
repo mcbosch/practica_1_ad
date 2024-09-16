@@ -1,0 +1,21 @@
+
+# Defunciones por COVID-19
+## Practica 1: Analisis de Dades
+### Autors: Miquel Angel Llauger Suau, Albert Moya Nadal i Melcion Ciudad Bosch.
+
+```{r, echo=FALSE}
+#install.packages("tidyverse", dep=TRUE)
+library(tidyverse)
+tabla_datos <- read.csv("61506.csv", header = TRUE, sep = ";");
+variable.names(tabla_datos)
+```
+
+Disponemos de una tabla de 6 variables y 16200 observaciones, analicemos que tipo de variables tenemos y cuales son las posibles observaciones para su posterior análisis. Al tener tantas observaciones no podemos hacer un analisis visual de que tipo de observaciones hay en cada variable. Optamos por utilizar la función "unique" en las distintas variables excepto la última que es una variable de tipo cuantitativo discreto.
+
+```{r}
+length(unique(tabla_datos[,1]))
+length(unique(tabla_datos[,2]))
+length(unique(tabla_datos[,3]))
+length(unique(tabla_datos[,4]))
+length(unique(tabla_datos[,5]))
+```
