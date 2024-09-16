@@ -6,18 +6,15 @@
 ```{r, echo=FALSE}
 #install.packages("tidyverse", dep=TRUE)
 library(tidyverse)
-tabla_datos <- read.csv("61506.csv", header = TRUE, sep = ";");
-variable.names(tabla_datos)
+tb_cov <- read.csv("covid.csv", header = TRUE, sep = ";",stringsAsFactors = FALSE);
 ```
 
 Disponemos de una tabla de 6 variables y 16200 observaciones, analicemos que tipo de variables tenemos y cuales son las posibles observaciones para su posterior análisis. Al tener tantas observaciones no podemos hacer un analisis visual de que tipo de observaciones hay en cada variable. Optamos por utilizar la función "unique" en las distintas variables excepto la última que es una variable de tipo cuantitativo discreto.
 
 ```{r, echo=FALSE}
-length(unique(tabla_datos[,1]))
-length(unique(tabla_datos[,2]))
-length(unique(tabla_datos[,3]))
-length(unique(tabla_datos[,4]))
-length(unique(tabla_datos[,5]))
+cov_Hombres = filter(tb_cov, Sexo == "Hombres", Comunidades.y.Ciudades.Autónomas == "", Covid.19 == "Total")
+cov_Mujeres = filter(tb_cov, Sexo == "Mujeres", Comunidades.y.Ciudades.Autónomas == "", Covid.19 == "Total")
+cov_Total = filter(tb_cov, Sexo == "Total", Comunidades.y.Ciudades.Autónomas == "", Covid.19 == "Total")
 ```
 
 
