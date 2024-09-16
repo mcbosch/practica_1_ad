@@ -15,6 +15,21 @@ Disponemos de una tabla de 6 variables y 16200 observaciones, analicemos que tip
 cov_Hombres = filter(tb_cov, Sexo == "Hombres", Comunidades.y.Ciudades.Autónomas == "", Covid.19 == "Total")
 cov_Mujeres = filter(tb_cov, Sexo == "Mujeres", Comunidades.y.Ciudades.Autónomas == "", Covid.19 == "Total")
 cov_Total = filter(tb_cov, Sexo == "Total", Comunidades.y.Ciudades.Autónomas == "", Covid.19 == "Total")
+cov_ComAut = filter(tb_cov, Sexo == "Total", Comunidades.y.Ciudades.Autónomas != "", Covid.19 == "Total", Semana.de.defunción == "Total")
 ```
+
+Feim un analisis en funcio de si es covid identificat o no. Tenim els següents posibles valors de la variable Covid.19:
+
+```{r, echo=FALSE}
+unique(tb_cov[,3])
+```
+```{r,echo=FALSE}
+cov_Ident = filter(tb_cov, Sexo == "Total", Comunidades.y.Ciudades.Autónomas == "", Covid.19 == "Covid-19 Virus identificado")
+
+cov_No.Ident = filter(tb_cov, Sexo == "Total", Comunidades.y.Ciudades.Autónomas == "", Covid.19 == "Covid-19 Virus no identificado (sospechoso)")
+
+cov_SIM.Cv19 = filter(tb_cov, Sexo == "Total", Comunidades.y.Ciudades.Autónomas == "", Covid.19 == "Síndrome inflamatorio multisistémico asociado con COVID-19, no especificado")
+```
+
 
 
