@@ -140,6 +140,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>data_CAut <span class="ot">=</span> cov_ComAut[,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">5</span>)]</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>data_CAut<span class="sc">$</span>CAut</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "01 Andalucía"                   "02 Aragón"                     
+ [3] "03 Asturias, Principado de"     "04 Balears, Illes"             
+ [5] "05 Canarias"                    "06 Cantabria"                  
+ [7] "07 Castilla y León"             "08 Castilla - La Mancha"       
+ [9] "09 Cataluña"                    "10 Comunitat Valenciana"       
+[11] "11 Extremadura"                 "12 Galicia"                    
+[13] "13 Madrid, Comunidad de"        "14 Murcia, Región de"          
+[15] "15 Navarra, Comunidad Foral de" "16 País Vasco"                 
+[17] "17 Rioja, La"                   "18 Ceuta"                      
+[19] "19 Melilla"                    </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>data_CAut<span class="sc">$</span>CAut <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">19</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="at">height =</span> data_CAut<span class="sc">$</span>DefTotal, <span class="at">name =</span> data_CAut<span class="sc">$</span>CAut)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="AD_defunciones_COVID-19_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>

@@ -45,5 +45,11 @@ boxplot(data)
 ```
 
 
+```{r}
+data_CAut = cov_ComAut[,c(1,5)]
+data_CAut$CAut
+data_CAut$CAut <- 1:19
+barplot(height = data_CAut$DefTotal, name = data_CAut$CAut)
+```
 
 
